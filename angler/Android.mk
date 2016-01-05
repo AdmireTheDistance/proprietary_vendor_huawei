@@ -8,12 +8,10 @@
 #
 LOCAL_PATH := $(call my-dir)
 
-
-# For verifying that the vendor build is what we thing it is
+# For verifying that the vendor build is what we think it is
 
 $(shell mkdir -p $(TARGET_OUT_VENDOR)/)
 $(shell cp -fR $(LOCAL_PATH)/vendor/* $(TARGET_OUT_VENDOR)/)
-
 
 define vendormk
 	if [ ! -z "$(TARGET_OUT_VENDOR)/lib64" ]; then \
@@ -21,4 +19,3 @@ define vendormk
 		cp $(LOCAL_PATH)/* `pwd`/$(TARGET_OUT_VENDOR)/;
     	fi
 endef
-
